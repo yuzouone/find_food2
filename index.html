@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>发现</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div class="header">
+    <ul>
+        <li class="changecolor">特色</li>
+        <li ontouchend="breakfast()">早餐</li>
+        <li>午餐</li>
+        <li>晚餐</li>
+        <li>零食</li>
+        <li>甜品</li>
+    </ul>
+</div>
+<div class="main">
+    <img class="banner" src="images/banner2.png" alt="">
+    <div class="content">
+        <div class="left">
+            <p>精选商品</p>
+            <img src="images/egg@3x.png" alt="">
+        </div>
+        <div class="right">
+            <div class="cost">
+                <p>澳大利亚进口，超级鲜鸡蛋</p>
+                <p>￥20.68</p>
+            </div>
+            <p class="more">查看更多</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <p>精选商品</p>
+            <img src="images/fruit@3x.png" alt="">
+        </div>
+        <div class="right">
+            <div class="cost">
+                <p>浓香水蜜桃</p>
+                <p>￥25.68</p>
+            </div>
+            <p class="more">查看更多</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <p>精选商品</p>
+            <img src="images/hamburger@3x.png" alt="">
+        </div>
+        <div class="right">
+            <div class="cost">
+                <p>美味汉堡</p>
+                <p>￥5.68</p>
+            </div>
+            <p class="more">查看更多</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        html.style.fontSize = window.screen.width+'px';
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+    //点击变颜色
+    $('.header li').on('touchend',function(){
+        $(this).addClass('changecolor').siblings().removeClass('changecolor');
+    });
+    //跳转更多页面
+    $('.more').on('touchend',function(){
+        window.location.href='src/feature.html'
+    });
+    //跳转早餐页面
+    function breakfast(){
+        window.location.href='src/family.html'
+    }
+</script>
+</html>

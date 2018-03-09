@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>早餐</title>
+    <link rel="stylesheet" href="../css/family.css">
+</head>
+<body>
+<div class="title">
+    <p>四个类目</p>
+</div>
+<div class="main">
+    <div class="content" ontouchend="foot()">
+        <div class="left">
+            <img src="../images/egg@3x.png" alt="">
+            <p>营养品</p>
+        </div>
+        <div class="right">
+            <p>3</p>
+            <img src="../images/right.png" alt="">
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <img src="../images/fruit@3x.png" alt="">
+            <p>水果</p>
+        </div>
+        <div class="right">
+            <p>24</p>
+            <img src="../images/right.png" alt="">
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <img src="../images/hamburger@3x.png" alt="">
+            <p>面包</p>
+        </div>
+        <div class="right">
+            <p>5</p>
+            <img src="../images/right.png" alt="">
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <img src="../images/milk@2x.png" alt="">
+            <p>牛奶</p>
+        </div>
+        <div class="right">
+            <p>13</p>
+            <img src="../images/right.png" alt="">
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        html.style.fontSize = window.screen.width+'px';
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+    //跳转子页面
+    function foot(){
+        window.location.href='family_foot.html'
+    }
+    //获取
+    /*var a = '1A、4D、1A、1A、2B、7C、4D、1A';
+    var a_arr = a.split('、');
+    var b_arr = a_arr;
+    var all_arr=[];*/
+    /*for(var i=0;i<a_arr.length;i++){
+        var sum=1;
+        for(var j=1;j<a_arr.length;j++){
+            if(a_arr[i] == a_arr[j]){
+                sum+=1;
+                b_arr.splice(j,1);
+                b_arr.splice(i,1,b);
+                console.log("******************");
+                console.log(sum);
+                console.log(a_arr);
+            }
+        }
+        b_arr.splice(i,1);
+        var b = a_arr[i]+'*'+sum;
+        all_arr.push(b);
+        console.log(all_arr);
+    }*/
+    /*var a = '1A、4D、1A、1A、2B、7C、4D、1A';
+    var arr = a.split('、');
+    var arr1 = [];
+    function fnarr(){
+        var sum=[];
+        for(var i=1;i<arr.length;i++){
+            if(arr[0]==arr[i]){
+
+                sum.push(i);
+                console.log(arr);
+                console.log(123);
+                console.log(i);
+
+
+            }
+        }*/
+        /*arr.splice(i,1);
+        console.log(arr);
+        arr.splice(0,1);
+        console.log(arr);*/
+
+        /*for(var i=0;i<sum.length;i++){
+            arr.splice(sum[i],1);
+            console.log(111);
+            console.log(sum[i]);
+            console.log(arr);
+        }*/
+        /*if(sum.length!=0){
+            var c = sum.length+1;
+            var b = arr[0]+"*"+c;
+            arr1.push(b);
+        }*/
+        /*if(arr.length!=0){
+            fnarr();
+        }*/
+        /*console.log(123);
+        console.log(arr);
+        console.log('###################');
+        console.log(arr1);*/
+
+    /*}
+    fnarr();*/
+    /*console.log(123);
+    console.log(arr);
+    console.log('###################');
+    console.log(arr1);*/
+
+</script>
+</html>
