@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-07 15:37:50
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-09 18:23:45
+* @Last Modified time: 2018-03-10 15:43:07
 */
 *{
     margin: 0;padding: 0;border: 0;
@@ -48,6 +48,7 @@ html,body{
     font-size: 0.32rem;
     color:#000000;
     margin-left: 0.44rem;
+    font-weight: bold;
 }
 .right{
     display: flex;

@@ -21,42 +21,49 @@
 <div class="main">
     <img class="banner" src="images/banner2.png" alt="">
     <div class="content">
-        <div class="left">
+        <div class="left img">
             <p>精选商品</p>
             <img src="images/egg@3x.png" alt="">
         </div>
         <div class="right">
             <div class="cost">
-                <p>澳大利亚进口，超级鲜鸡蛋</p>
+                <span>澳大利亚进口，超级鲜鸡蛋</span>
                 <p>￥20.68</p>
             </div>
             <p class="more">查看更多</p>
         </div>
     </div>
     <div class="content">
-        <div class="left">
+        <div class="left img">
             <p>精选商品</p>
             <img src="images/fruit@3x.png" alt="">
         </div>
         <div class="right">
             <div class="cost">
-                <p>浓香水蜜桃</p>
+                <span>浓香水蜜桃</span>
                 <p>￥25.68</p>
             </div>
             <p class="more">查看更多</p>
         </div>
     </div>
     <div class="content">
-        <div class="left">
+        <div class="left img">
             <p>精选商品</p>
             <img src="images/hamburger@3x.png" alt="">
         </div>
         <div class="right">
             <div class="cost">
-                <p>美味汉堡</p>
+                <span>美味汉堡</span>
                 <p>￥5.68</p>
             </div>
             <p class="more">查看更多</p>
+        </div>
+    </div>
+    <div class="motai">
+        <div class="motai_content">
+            <img src="" alt="">
+            <span></span>
+            <p></p>
         </div>
     </div>
 </div>
@@ -82,5 +89,19 @@
     function breakfast(){
         window.location.href='src/family.html'
     }
+    //显示隐藏图片
+    $('.motai').hide();
+    $('.img').on('touchend',function(){
+        var imgsrc = $(this).children('img').attr('src');
+        var name = $(this).siblings('.right').children('.cost').children('span').text();
+        var cost = $(this).siblings('.right').children('.cost').children('p').text();;
+        $('.motai').fadeIn();
+        $('.motai_content img').attr('src',imgsrc);
+        $('.motai_content span').text(name);
+        $('.motai_content p').text(cost);
+    });
+    $('.motai').on('touchend',function(){
+        $('.motai').fadeOut();
+    });
 </script>
 </html>

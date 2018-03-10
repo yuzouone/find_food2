@@ -10,29 +10,35 @@
 <body>
 <div class="main">
     <img class="banner" src="../images/banner2.png" alt="">
-    <div class="content">
-        <img class="img" src="../images/egg@3x.png" alt="">
+    <div class="content img">
+        <img class="" src="../images/egg@3x.png" alt="">
         <span>澳大利亚进口，超级鲜鸡蛋</span>
         <p>￥20.68</p>
     </div>
-    <div class="content">
-        <img class="img" src="../images/fruit@3x.png" alt="">
+    <div class="content img">
+        <img class="" src="../images/fruit@3x.png" alt="">
         <span>浓香水蜜桃</span>
         <p>￥25.68</p>
     </div>
-    <div class="content">
-        <img class="img" src="../images/hamburger@3x.png" alt="">
+    <div class="content img">
+        <img class="" src="../images/hamburger@3x.png" alt="">
         <span>美味汉堡</span>
         <p>￥5.68</p>
     </div>
-</div>
-<div class="motai">
-    <div class="motai_content">
-        <img class="img" src="../images/knife.png" alt="">
-        <span>早餐三明治</span>
-        <p>￥24.86</p>
+    <div class="content img">
+        <img class="" src="../images/hamburger@3x.png" alt="">
+        <span>美味汉堡</span>
+        <p>￥5.68</p>
+    </div>
+    <div class="motai">
+        <div class="motai_content">
+            <img class="img" src="" alt="">
+            <span></span>
+            <p></p>
+        </div>
     </div>
 </div>
+
 </body>
 <script>
     //获取设备屏幕宽度,设置根目录宽度和字体大小
@@ -46,9 +52,9 @@
     //显示隐藏图片
     $('.motai').hide();
     $('.img').on('touchend',function(){
-        var imgsrc = $(this).attr('src');
-        var name = $(this).siblings('span').text();
-        var cost = $(this).siblings('p').text();
+        var imgsrc = $(this).children('img').attr('src');
+        var name = $(this).children('span').text();
+        var cost = $(this).children('p').text();
         $('.motai').fadeIn();
         $('.motai_content img').attr('src',imgsrc);
         $('.motai_content span').text(name);
