@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-06 17:21:12
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-10 14:56:01
+* @Last Modified time: 2018-03-10 17:34:53
 */
 *{
     margin: 0;padding: 0;border: 0;
@@ -56,7 +56,7 @@ html,body{
     position: absolute;
     left: 0;
     top: 0;
-    background:rgba(0,0,0,0.1);
+    background:rgba(0,0,0,0.4);
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -68,7 +68,7 @@ html,body{
     display:flex;
     flex-direction:column;
     align-items: center;
-    margin-top: 1.97rem;
+    margin-top: 1.57rem;
     padding-bottom: 0.5rem;
     position:fixed;
     left:50%;

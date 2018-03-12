@@ -81,6 +81,18 @@
     /*$('.header li').on('touchend',function(){
         $(this).addClass('changecolor').siblings().removeClass('changecolor');
     });*/
+    $('.header li').on('touchstart',function(){
+        $(this).addClass('btn-on');
+    });
+    $('.header li').on('touchend',function(){
+        $(this).removeClass('btn-on');
+    });
+        /*btn.ontouchstart=function(){
+            this.className="btn btn-on";
+        }
+        btn.ontouchend=function(){
+            this.className="btn";
+        }*/
     //跳转更多页面
     $('.more').on('touchend',function(){
         window.location.href='src/feature.html'
@@ -103,5 +115,6 @@
     $('.motai').on('touchend',function(){
         $('.motai').fadeOut();
     });
+
 </script>
 </html>

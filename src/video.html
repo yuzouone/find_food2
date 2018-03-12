@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>视频</title>
+    <link rel="stylesheet" href="../css/video.css">
+</head>
+<body>
+<video controls="controls" autoplay="autoplay" style="width:100%">
+    <source src="../video/video.ogg" type="video/ogg" />
+    <source src="../video/video.mp4" type="video/mp4" />
+</video>
+
+</body>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        html.style.fontSize = window.screen.width+'px';
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+</script>
+</html>

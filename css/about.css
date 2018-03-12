@@ -1,0 +1,93 @@
+/*
+* @Author: Administrator
+* @Date:   2018-03-10 16:59:18
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-03-12 15:15:33
+*/
+*{
+    margin: 0;padding: 0;border: 0;
+}
+html,body{
+    width:100%;
+}
+body{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+img{
+    width:100%;
+}
+p{
+    font-size: 0.28rem;
+    color:#222222;
+}
+p:nth-of-type(1){
+    font-size:0.24rem;
+    color:#000000;
+}
+img:nth-of-type(2){
+    margin-top: 0.58rem;
+}
+p:nth-of-type(2){
+    font-size:0.4rem;
+    color:#000000;
+    font-weight: bold;
+    margin-top: 0.58rem;
+}
+p:nth-of-type(3){
+    width:6.9rem;
+    margin-top: 0.32rem;
+    line-height: 0.50rem;
+}
+img:nth-of-type(3){
+    margin-top: 0.52rem;
+}
+p:nth-of-type(4){
+    font-size:0.4rem;
+    color:#000000;
+    font-weight: bold;
+    margin-top: 0.58rem;
+}
+p:nth-of-type(5){
+    width:6.9rem;
+    margin-top: 0.32rem;
+    line-height: 0.50rem;
+}
+p:nth-of-type(6){
+    width:6.9rem;
+    margin-top: 0.3rem;
+    line-height: 0.50rem;
+}
+img:nth-of-type(4){
+    margin-top: 0.52rem;
+}
+p:nth-of-type(7){
+    font-size:0.4rem;
+    color:#000000;
+    font-weight: bold;
+    margin-top: 0.58rem;
+}
+p:nth-of-type(8){
+    width:6.9rem;
+    margin-top: 0.32rem;
+    line-height: 0.50rem;
+}
+p:nth-of-type(9){
+    width:6.9rem;
+    margin-top: 0.32rem;
+    line-height: 0.50rem;
+}
+p:nth-of-type(10){
+    width:6.9rem;
+    margin-top: 0.32rem;
+    line-height: 0.50rem;
+}
+p:nth-of-type(11){
+    margin-top: 0.32rem;
+    margin-bottom: 1.6rem;
+}
+p:nth-of-type(11) span{
+    color:#d73e3e;
+    border-bottom: 1px solid #d73e3e;
+}
