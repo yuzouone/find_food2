@@ -6,8 +6,9 @@
     <title>发现</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/hammer.js"></script>
 </head>
-<body>
+<body id="body">
 <div class="header">
     <ul>
         <li class="changecolor">特色</li>
@@ -114,6 +115,14 @@
     });
     $('.motai').on('touchend',function(){
         $('.motai').fadeOut();
+    });
+    //向右滑动
+    var el = document.getElementById('body');
+    var hammer = new Hammer(el);
+    hammer.on('pan',function(e){
+        console.log(123);
+        console.log(e);
+        window.location.href='src/family.html';
     });
 </script>
 </html>
