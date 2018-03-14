@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-06 17:21:12
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-10 17:34:53
+* @Last Modified time: 2018-03-14 17:39:00
 */
 *{
     margin: 0;padding: 0;border: 0;
@@ -73,7 +73,6 @@ html,body{
     position:fixed;
     left:50%;
     transform: translateX(-3.42rem);
-
 }
 .motai_content img{
     width:80%;

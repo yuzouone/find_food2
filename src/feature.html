@@ -60,8 +60,9 @@
         $('.motai_content img').attr('src',imgsrc);
         $('.motai_content span').text(name);
         $('.motai_content p').text(cost);
+        console.log(2);
     });
-    $('.motai').on('touchend',function(){
+    $('.motai').on('click',function(){
         $('.motai').fadeOut();
     });
     //左划返回上一页面
