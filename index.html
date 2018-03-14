@@ -23,7 +23,7 @@
     <img class="banner" src="images/banner2.png" alt="">
     <div class="content">
         <div class="left img">
-            <p>精选商品1212</p>
+            <p>精选商品</p>
             <img src="images/egg@3x.png" alt="">
         </div>
         <div class="right">
@@ -112,17 +112,32 @@
         $('.motai_content img').attr('src',imgsrc);
         $('.motai_content span').text(name);
         $('.motai_content p').text(cost);
+        alert(123);
     });
     $('.motai').on('touchend',function(){
         $('.motai').fadeOut();
     });
     //向右滑动
     var el = document.getElementById('body');
-    var hammer = new Hammer(el);
+    /*var hammer = new Hammer(el);
     hammer.on('panleft',function(e){
         console.log(123);
         console.log(e);
         window.location.href='src/family.html';
+    });*/
+    var el = document.getElementById('body'),
+    mc = new Hammer.Manager(el),
+    Swipe = new Hammer.Swipe();
+    mc.add(Swipe);
+    mc.on('swipeleft', function (e) {
+        /*swipteTo('next', e);*/
+        console.log(1);
+        alert(11);
+    });
+    mc.on('swiperight', function (e) {
+        /*swipteTo('prev', e);*/
+        console.log(2);
+        alert(22);
     });
 </script>
 </html>
