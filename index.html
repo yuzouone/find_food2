@@ -104,7 +104,7 @@
     }
     //显示隐藏图片
     $('.motai').hide();
-    $('.img').on('touchend',function(){
+    $('.img').on('click',function(){
         var imgsrc = $(this).children('img').attr('src');
         var name = $(this).siblings('.right').children('.cost').children('span').text();
         var cost = $(this).siblings('.right').children('.cost').children('p').text();
@@ -125,22 +125,19 @@
         console.log(e);
         window.location.href='src/family.html';
     });*/
-    /*var con = document.getElementById('body'),
+    var container = document.getElementById('body');
     var mc = new Hammer.Manager(container);
     var swipe = new Hammer.Swipe();
     mc.add(swipe);
     mc.on('swipeleft', function (e) {
-        swipteTo('next', e);
         console.log(1);
         console.log(e);
+        window.location.href='src/family.html'
     });
     mc.on('swiperight', function (e) {
-        swipteTo('prev', e);
         console.log(2)
         console.log(e);
+        window.location.href='src/family_foot.html'
     });
-    var mc = new Hammer.Manager(container);
-    var swipe = new Hammer.Swipe();
-    mc.add(swipe);*/
 </script>
 </html>
