@@ -6,8 +6,9 @@
     <title>营养品</title>
     <link rel="stylesheet" href="../css/family_foot.css">
     <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/touch.min.js"></script>
 </head>
-<body>
+<body id="body">
 <div class="title">
     <p>四种品类</p>
 </div>
@@ -126,6 +127,18 @@
     $('.motai').on('touchend',function(){
         $('.motai').fadeOut();
     });
-
+    //左划返回上一页面
+    touch.on('#body','swipeleft',function(e){
+        console.log(123);
+        console.log(e);
+        window.history.go(-1);
+    })
+    //右划下一页面
+    /*touch.on('#body','swiperight',function(e){
+        console.log(123);
+        console.log(e);
+        window.location.href='src/family_foot.html';
+    })*/
+    /*window.location.href = document.referrer*/
 </script>
 </html>

@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
     <title>早餐</title>
     <link rel="stylesheet" href="../css/family.css">
+    <script src="../js/touch.min.js"></script>
 </head>
-<body>
+<body id="body">
 <div class="title">
     <p>四个类目</p>
 
@@ -70,6 +71,18 @@
     function foot(){
         window.location.href='family_foot.html'
     }
+    //左划返回上一页面
+    touch.on('#body','swipeleft',function(e){
+        console.log(123);
+        console.log(e);
+        window.history.go(-1);
+    })
+    //右划下一页面
+    touch.on('#body','swiperight',function(e){
+        console.log(123);
+        console.log(e);
+        window.location.href='src/family_foot.html';
+    })
     //获取
     /*var a = '1A、4D、1A、1A、2B、7C、4D、1A';
     var a_arr = a.split('、');
