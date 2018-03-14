@@ -114,7 +114,7 @@
     screenwidth();
     //显示隐藏图片
     $('.motai').hide();
-    $('.img').on('touchend',function(){
+    $('.img').on('click',function(){
         var imgsrc = $(this).children('.left').children('img').attr('src');
         var name = $(this).children('.left').children('p').text();
         var cost = $(this).children('.right').children('p').text();
