@@ -9,6 +9,7 @@
 <body>
 <div class="title">
     <p>四个类目</p>
+
 </div>
 <div class="main">
     <div class="content" ontouchend="foot()">
@@ -52,7 +53,6 @@
         </div>
     </div>
 </div>
-
 </body>
 <script>
     /*https://yuzouone.github.io/find_food2/src/feature.html*/
@@ -64,6 +64,8 @@
         html.style.fontSize = w/7.5 +'px';
     }
     screenwidth();
+    console.log(123);
+    console.log(document.referrer);
     //跳转子页面
     function foot(){
         window.location.href='family_foot.html'

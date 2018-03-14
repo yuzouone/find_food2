@@ -23,7 +23,7 @@
     <img class="banner" src="images/banner2.png" alt="">
     <div class="content">
         <div class="left img">
-            <p>精选商品</p>
+            <p>精选商品1</p>
             <img src="images/egg@3x.png" alt="">
         </div>
         <div class="right">
@@ -126,9 +126,10 @@
         window.location.href='src/family.html';
     });*/
     var container = document.getElementById('body');
-    var mc = new Hammer.Manager(container);
-    var swipe = new Hammer.Swipe();
-    mc.add(swipe);
+    var mc = new Hammer(container)
+    mc.get('swipe').set({
+        direction: Hammer.DIRECTION_ALL
+    });
     mc.on('swipeleft', function (e) {
         console.log(1);
         console.log(e);
@@ -139,5 +140,6 @@
         console.log(e);
         window.location.href='src/family_foot.html'
     });
+    /*mc.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL});*/
 </script>
 </html>
