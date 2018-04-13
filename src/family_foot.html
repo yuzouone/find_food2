@@ -16,11 +16,11 @@
     <div class="content img">
         <div class="left">
             <img class="" src="../images/egg@3x.png" alt="">
-            <p>澳大利亚进口鲜鸡</p>
+            <p>澳大利亚进口鲜鸡蛋</p>
         </div>
         <div class="right">
-            <span>￥</span>
-            <p>24.86</p>
+            <p>￥30.5</p>
+            <p class="cost">￥24.86</p>
         </div>
     </div>
     <div class="content img">
@@ -29,8 +29,8 @@
             <p>农家小炒</p>
         </div>
         <div class="right">
-            <span>￥</span>
-            <p>125</p>
+            <p></p>
+            <p class="cost">￥12.5</p>
         </div>
     </div>
     <div class="content img">
@@ -39,8 +39,8 @@
             <p>意大利面</p>
         </div>
         <div class="right">
-            <span>￥</span>
-            <p>5.86</p>
+            <p>￥6.65</p>
+            <p class="cost">￥5.86</p>
         </div>
     </div>
     <div class="content img">
@@ -49,48 +49,8 @@
             <p>浓香益力多</p>
         </div>
         <div class="right">
-            <span>￥</span>
-            <p>15.86</p>
-        </div>
-    </div>
-    <div class="content img">
-        <div class="left">
-            <img class="" src="../images/fruit@3x.png" alt="">
-            <p>浓香益力多</p>
-        </div>
-        <div class="right">
-            <span>￥</span>
-            <p>15.86</p>
-        </div>
-    </div>
-    <div class="content img">
-        <div class="left">
-            <img class="" src="../images/fruit@3x.png" alt="">
-            <p>浓香益力多</p>
-        </div>
-        <div class="right">
-            <span>￥</span>
-            <p>15.86</p>
-        </div>
-    </div>
-    <div class="content img">
-        <div class="left">
-            <img class="" src="../images/fruit@3x.png" alt="">
-            <p>浓香益力多</p>
-        </div>
-        <div class="right">
-            <span>￥</span>
-            <p>15.86</p>
-        </div>
-    </div>
-    <div class="content img">
-        <div class="left">
-            <img class="" src="../images/fruit@3x.png" alt="">
-            <p>浓香益力多</p>
-        </div>
-        <div class="right">
-            <span>￥</span>
-            <p>15.86</p>
+            <p>￥26.65</p>
+            <p class="cost">￥15.86</p>
         </div>
     </div>
     <div class="motai">
@@ -117,8 +77,8 @@
     $('.img').on('click',function(){
         var imgsrc = $(this).children('.left').children('img').attr('src');
         var name = $(this).children('.left').children('p').text();
-        var cost = $(this).children('.right').children('p').text();
-        cost = '￥'+cost;
+        var cost = $(this).find('.cost').text();
+        //cost = '￥'+cost;
         $('.motai').fadeIn();
         $('.motai_content img').attr('src',imgsrc);
         $('.motai_content span').text(name);
@@ -128,11 +88,11 @@
         $('.motai').fadeOut();
     });
     //左划返回上一页面
-    touch.on('#body','swipeleft',function(e){
+    /*touch.on('#body','swipeleft',function(e){
         console.log(123);
         console.log(e);
         window.history.go(-1);
-    })
+    })*/
     //右划下一页面
     /*touch.on('#body','swiperight',function(e){
         console.log(123);

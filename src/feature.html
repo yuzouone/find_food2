@@ -14,22 +14,35 @@
     <div class="content img">
         <img class="" src="../images/egg@3x.png" alt="">
         <span>澳大利亚进口，超级鲜鸡蛋</span>
-        <p>￥20.68</p>
+        <div class="content_right">
+            <p>￥22.68</p>
+            <p class="cost">￥20.68</p>
+        </div>
+
     </div>
     <div class="content img">
         <img class="" src="../images/fruit@3x.png" alt="">
         <span>浓香水蜜桃</span>
-        <p>￥25.68</p>
+        <div class="content_right">
+            <p>￥12.48</p>
+            <p class="cost">￥8.68</p>
+        </div>
     </div>
     <div class="content img">
         <img class="" src="../images/hamburger@3x.png" alt="">
         <span>美味汉堡</span>
-        <p>￥5.68</p>
+        <div class="content_right">
+            <p>￥6.76</p>
+            <p class="cost">￥5.68</p>
+        </div>
     </div>
     <div class="content img">
         <img class="" src="../images/hamburger@3x.png" alt="">
         <span>美味汉堡</span>
-        <p>￥5.68</p>
+        <div class="content_right">
+            <p>￥20.24</p>
+            <p class="cost">￥16.45</p>
+        </div>
     </div>
     <div class="motai">
         <div class="motai_content">
@@ -55,21 +68,21 @@
     $('.img').on('click',function(){
         var imgsrc = $(this).children('img').attr('src');
         var name = $(this).children('span').text();
-        var cost = $(this).children('p').text();
+        var cost = $(this).find('.cost').text();
         $('.motai').fadeIn();
         $('.motai_content img').attr('src',imgsrc);
         $('.motai_content span').text(name);
         $('.motai_content p').text(cost);
-        console.log(2);
     });
     $('.motai').on('click',function(){
         $('.motai').fadeOut();
     });
     //左划返回上一页面
-    touch.on('#body','swipeleft',function(e){
+    /*touch.on('#body','swipeleft',function(e){
         console.log(123);
         console.log(e);
         window.history.go(-1);
-    })
+    })*/
+    //
 </script>
 </html>

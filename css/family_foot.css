@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-07 16:15:57
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-10 17:49:38
+* @Last Modified time: 2018-03-30 13:35:06
 */
 *{
     margin: 0;padding: 0;border: 0;
@@ -55,20 +55,28 @@ html,body{
 }
 .right{
     display: flex;
-    flex-direction:row;
-    align-items: center;
+    flex-direction:column;
+    align-items: flex-end;
+    justify-content:center;
+    height:100%;
+    position:relative;
 }
-.right span{
-    font-size: 0.32rem;
-    color:#222222;
-    margin-right: 0.08rem;
+.right p:nth-of-type(1){
+    font-size: 0.28rem;
+    color:#999999;
+    position:absolute;
+    right: 0.34rem;
+    top: 0.2rem;
+    border-bottom: 0.03rem solid #999999;
+    height:0.2rem;
     font-weight:bold;
 }
-.right p{
+.right p:nth-of-type(2){
     font-size: 0.32rem;
-    color:#222222;
+    color:#d73e3e;
     margin-right: 0.34rem;
     font-weight:bold;
+
 }
 .motai{
     width:100%;

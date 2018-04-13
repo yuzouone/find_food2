@@ -2,7 +2,7 @@
 * @Author: Administrator
 * @Date:   2018-03-06 17:21:12
 * @Last Modified by:   Administrator
-* @Last Modified time: 2018-03-14 17:39:00
+* @Last Modified time: 2018-04-10 17:50:21
 */
 *{
     margin: 0;padding: 0;border: 0;
@@ -10,6 +10,7 @@
 }
 html,body{
     height:100%;
+    background: #f5f5f5;
 }
 .main{
     width:100%;
@@ -19,7 +20,6 @@ html,body{
     align-items: center;
     /* height:100%; */
     position:relative;
-
 }
 .banner{
     width:94%;
@@ -44,9 +44,26 @@ html,body{
     margin-left: 0.6rem;
     width:2.4rem;
 }
-.content p{
+.content_right{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    height:2.0rem;
+    position:relative;
+}
+.content_right p:nth-of-type(1){
+    font-size: 0.28rem;
+    color:#999999;
+    font-weight:bold;
+    position:absolute;
+    left: 0.6rem;
+    top: 0.3rem;
+    border-bottom: 0.03rem solid #999999;
+    height:0.2rem;
+}
+.content_right p:nth-of-type(2){
     font-size: 0.32rem;
-    color:#222222;
+    color:#d73e3e;
     font-weight:bold;
     margin-left: 0.6rem;
 }
