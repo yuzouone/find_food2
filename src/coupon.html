@@ -36,7 +36,6 @@
 </footer>
 </body>
 <script>
-    alert('first');
     //获取设备屏幕宽度,设置根目录宽度和字体大小
     function screenwidth(){
         var html = document.getElementById('html');
@@ -46,9 +45,7 @@
     }
     screenwidth();
     //分享
-    alert('second');
     function wx(){
-        alert(123);
         //判断用户移动端使用的系统平台
         var u = navigator.userAgent;
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
@@ -62,16 +59,12 @@
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
-            alert('2');
-            window.webkit.messageHandlers.openAlbum.postMessage({'a':'1'});
-            alert('今天真开心');
-
+            window.webkit.messageHandlers.shareMoney.postMessage({'name':'friend'});
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
         }
     }
     function wx_friend(){
-        alert(123);
         //判断用户移动端使用的系统平台
         var u = navigator.userAgent;
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
@@ -85,9 +78,7 @@
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
-            alert('2');
-            window.webkit.messageHandlers.shareMoney.postMessage({'a':'2'});
-            alert('爱吃棒棒糖');
+            window.webkit.messageHandlers.shareMoney.postMessage({'name':'family'});
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
         }
