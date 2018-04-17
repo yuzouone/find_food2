@@ -59,7 +59,8 @@
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
-            window.webkit.messageHandlers.shareMoney.postMessage({'a':'1'});
+            window.webkit.messageHandlers.openAlbum.postMessage({'a':'1'});
+            alert('今天真开心');
 
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
@@ -80,6 +81,7 @@
             //苹果手机
             console.log('苹果手机');
             window.webkit.messageHandlers.shareMoney.postMessage({'a':'2'});
+            alert('爱吃棒棒糖');
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
         }
