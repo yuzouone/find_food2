@@ -34,7 +34,7 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide"><img class="banner" src="images/banner2.png" alt=""></div>
+        <div class="swiper-slide" onclick="coupon()"><img class="banner" src="images/coupon.jpg" alt=""></div>
         <div class="swiper-slide"><img class="banner" src="images/banner2.png" alt=""></div>
         <div class="swiper-slide"><img class="banner" src="images/banner2.png" alt=""></div>
         </div>
@@ -104,13 +104,17 @@
 </body>
 <script>
     //获取域名,解析
-    function reset(){
+    /*function reset(){
         var r = window.location.search.substr(1).split('&');
         var first = r[0].split('=')[1];
         return first;
     }
     var cc = reset();
-    alert(cc);
+    alert(cc);*/
+    //跳转到折扣页面
+    function coupon(){
+        window.location.href = 'src/coupon.html'
+    }
     //获取设备屏幕宽度,设置根目录宽度和字体大小
     function screenwidth(){
         var html = document.getElementById('html');

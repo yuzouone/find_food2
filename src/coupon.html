@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>给用户送折扣</title>
+    <link rel="stylesheet" href="../css/coupon.css">
+</head>
+<body>
+<header>
+    <image src="../images/coupon_head2.png" style="width:100%"></image>
+</header>
+<section>
+    <span>分享幸运，就这一次</span>
+    <span>给好友送满减折扣，TA有你也有</span>
+    <div class="send">
+        <div class="wx" onclick="wx()">
+            <img src="../images/coupon_wx.png" alt="">
+            <p>微信好友</p>
+        </div>
+        <div class="wx_friend" onclick="wx_friend()">
+            <img src="../images/coupon_friend.png" alt="">
+            <p>微信朋友圈</p>
+        </div>
+    </div>
+</section>
+<div class="line"></div>
+<footer>
+    <!-- <div class="ft_head">
+        <div class="grayline"></div>
+        <span>活动细则</span>
+    </div> -->
+    <div class="grayline"></div>
+    <span>活动细则</span>
+    <p>1.被推荐的新用户输入手机号，即可获赠一张5折体验卷，可用于消费士哆便利（不设找零），体验卷有效期1年。<br/>2.您推荐的新客户只要产生消费（含消费体验卷），您即获得一张5折体验卷，可用于消费（士哆便利），体验卷有效期1年。<br/>3.士哆便利对该活动保持最终解释权。</p>
+</footer>
+</body>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        /*html.style.fontSize = window.screen.width+'px';*/
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+    //分享
+    function wx(){
+        //判断用户移动端使用的系统平台
+        var u = navigator.userAgent;
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            console.log('安卓手机');
+            window.jsObj.goAppCamera();
+            window.cameraResult = function(data){
+                document.getElementById('img').src = data;
+                vm.photo1=data;
+            }
+        } else if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            console.log('苹果手机');
+            window.webkit.messageHandlers.shareMoney.postMessage({'a':'1'});
+
+        } else if (u.indexOf('Windows Phone') > -1) {
+            //winphone手机
+        }
+    }
+    function wx_friend(){
+        //判断用户移动端使用的系统平台
+        var u = navigator.userAgent;
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            console.log('安卓手机');
+            window.jsObj.goAppCamera();
+            window.cameraResult = function(data){
+                document.getElementById('img').src = data;
+                vm.photo1=data;
+            }
+        } else if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            console.log('苹果手机');
+            window.webkit.messageHandlers.shareMoney.postMessage({'a':'2'});
+        } else if (u.indexOf('Windows Phone') > -1) {
+            //winphone手机
+        }
+    }
+</script>
+</html>
