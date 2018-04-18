@@ -1,0 +1,81 @@
+/*
+* @Author: Administrator
+* @Date:   2018-04-17 17:21:53
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-04-18 16:30:34
+*/
+*{
+    margin: 0;padding: 0;border: 0;
+}
+header img{
+    width:100%;
+    vertical-align: middle;
+}
+section{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    margin-top:0.5rem;
+}
+section input{
+    width:5rem;
+    height:0.8rem;
+    outline: none;
+    background: rgb(247,247,247);
+    text-align: center;
+    border:0.02rem solid rgb(34,34,34);
+    border-radius:0.1rem;
+
+}
+section input:-ms-input-placeholder{
+    color:#cccccc;
+}
+
+section input::-webkit-input-placeholder{
+    color:#cccccc;
+}
+section .free{
+    width:5rem;
+    height:0.8rem;
+    background: rgb(222,220,221);
+    text-align: center;
+    border-radius:0.1rem;
+    font-size: 0.32rem;
+    color:white;
+    line-height: 0.8rem;
+    margin-top:0.4rem;
+}
+section p{
+    font-size:0.26rem;
+    color:rgb(34,34,34);
+    margin-top:0.38rem;
+    padding-bottom: 0.2rem;
+    border-bottom:0.01rem solid rgb(34,34,34);
+}
+.line{
+    width:100%;
+    height:0.2rem;
+    background: rgb(222,220,221);
+    margin-top:1rem;
+}
+footer{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    padding-bottom: 0.7rem;
+}
+footer p{
+    font-size:0.26rem;
+    color:rgb(34,34,34);
+}
+footer p:nth-of-type(1){
+    margin-top:0.4rem;
+}
+footer p:nth-of-type(2){
+    margin-top:0.4rem;
+}
+footer img{
+    width:2.5rem;
+    height:2.5rem;
+    margin-top:0.3rem;
+}

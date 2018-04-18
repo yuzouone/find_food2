@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>给好友送折扣</title>
+    <link rel="stylesheet" href="../css/present.css">
+</head>
+<body>
+<header>
+    <image src="../images/present_head.png" style="width:100%"></image>
+</header>
+<section>
+    <input type="number" id="phone"  placeholder="请输入手机号" onkeyup="inputphone()" oninput="if(value.length>11)value=value.slice(0,11)">
+    <div class="free" id="free" onclick="send()">
+        <span>免费领取</span>
+    </div>
+    <p>下载士哆便利</p>
+</section>
+<div class="line"></div>
+<footer>
+    <p>长按识别二维码</p>
+    <img src="../images/code.png">
+    <p>关注微信</p>
+    <p>了解更多新鲜福利</p>
+</footer>
+</body>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        /*html.style.fontSize = window.screen.width+'px';*/
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+    //获取域名,解析
+    function reset(){
+        var r = window.location.search.substr(1).split('&');
+        var first = r[0].split('=')[1];
+        return first;
+    }
+    var firstphone = reset();
+    //判断电话
+    function checkphone(data){
+        if(!(/^1(3|4|5|7|8)\d{9}$/.test(data))){
+            console.log('错误的电话号码');
+            return false;
+        }else{
+            console.log('对的电话号码');
+            return true;
+        }
+    }
+    var flag = false;
+    var myphone = '';
+    function inputphone(){
+        var phone = document.getElementById('phone');
+        myphone = phone.value;
+        flag = checkphone(myphone);
+        if(flag == true){
+            var free = document.getElementById('free');
+            free.style.background = '#ff3a35'
+        }else if(flag == false){
+            var free = document.getElementById('free');
+            free.style.background = 'rgb(222,220,221)';
+        }
+    }
+    //发送手机号到后台
+    function send(){
+        if(flag == true){
+            alert(firstphone+'and'+myphone);
+        }else{
+            alert('失败');
+        }
+    }
+</script>
+</html>
