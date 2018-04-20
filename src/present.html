@@ -91,13 +91,29 @@
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
             //安卓手机
             console.log('安卓手机');
-
+            if(isWeiXin()){
+                alert('微信浏览器');
+            }else{
+                alert('其他浏览器');
+            }
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
             window.location.href ='storeberry://';
+            setTimeout(function () {
+                    window.location.href = "www.baidu.com";
+            }, 200);
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
+        }
+    }
+    //是否微信
+    function isWeiXin(){
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+            return true;
+        }else{
+            return false;
         }
     }
 </script>
