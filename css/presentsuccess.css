@@ -1,0 +1,78 @@
+/*
+* @Author: Administrator
+* @Date:   2018-04-18 17:32:24
+* @Last Modified by:   Administrator
+* @Last Modified time: 2018-04-19 12:00:47
+*/
+*{
+    margin: 0;padding: 0;border: 0;
+}
+body{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    background: #f5f5f5;
+}
+header{
+    width:5.52rem;
+    height:7rem;
+    background-image:url(../images/dis_img@2x.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+    margin-top:0.4rem;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    position:relative;
+}
+header img{
+    width:1rem;
+    height:1rem;
+    margin-top:0.8rem;
+}
+header p{
+    font-size: 0.34rem;
+    color:#222222;
+}
+header p:nth-of-type(1){
+    margin-top:0.6rem;
+}
+header span{
+    font-size:0.24rem;
+    color:#666666;
+    margin-top:0.2rem;
+}
+header .loadbutton{
+    width:3.2rem;
+    height:0.68rem;
+    background:#ff3a35;
+    text-align: center;
+    border-radius: 0.1rem;
+    line-height: 0.68rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0.5rem;
+    transform: translateX(-1.6rem);;
+}
+header .loadbutton p{
+    margin-top:0rem;
+    font-size:0.3rem;
+    color:#ffffff;
+}
+footer{
+    width:5.2rem;
+    display:flex;
+    flex-direction:column;
+}
+footer .footer_head{
+    width:100%;
+    text-align: center;
+    margin-top:0.48rem;
+}
+footer p{
+    font-size:0.22rem;
+    color:#222222;
+}
+footer p:nth-of-type(1){
+    margin-top:0.46rem;
+}

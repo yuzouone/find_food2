@@ -4,34 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
     <title>给好友送折扣</title>
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="../css/present.css">
+    <link rel="stylesheet" href="../css/presentsuccess.css">
 </head>
 <body>
 <header>
-    <image src="../images/present_head.png" style="width:100%"></image>
+    <img src="../images/juan.png"/>
+    <p>恭喜你！</p>
+    <p>获取一张五折优惠卷</p>
+    <span>已放入您134********账户</span>
+    <div class="loadbutton">
+        <p>下载APP去享用</p>
+    </div>
 </header>
-<section>
-    <input type="number" id="phone"  placeholder="请输入手机号" onkeyup="inputphone()" oninput="if(value.length>11)value=value.slice(0,11)">
-    <div class="free" id="free" onclick="send()">
-        <span>免费领取</span>
-    </div>
-    <p>下载士哆便利</p>
-</section>
-<div class="line"></div>
 <footer>
-    <p>长按识别二维码</p>
-    <img src="../images/code.png">
-    <p>关注微信</p>
-    <p>了解更多新鲜福利</p>
-</footer>
-<div class="motai">
-    <div class="content">
-        <p>你已经是士哆便利会</p>
-        <p>员了，快去使用优惠卷吧！</p>
-        <span onclick="openapp()">去使用</span>
+    <div class="footer_head">
+        <p>新人卷规则</p>
     </div>
-</div>
+    <p>范围：全国门店通用</p>
+    <p>规则：购买任何商品，抵扣5折，不设找零，同一设备、同一手机号只可领一次</p>
+    <p>期限：自领取日起，有效期1年</p>
+</footer>
 </body>
 <script>
     //获取设备屏幕宽度,设置根目录宽度和字体大小
@@ -77,27 +69,8 @@
     function send(){
         if(flag == true){
             alert(firstphone+'and'+myphone);
-            $.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
-                /*optional stuff to do after success */
-            });
         }else{
             alert('失败');
-        }
-    }
-    //打开app
-    function openapp(){
-        //判断用户移动端使用的系统平台
-        var u = navigator.userAgent;
-        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-            //安卓手机
-            console.log('安卓手机');
-
-        } else if (u.indexOf('iPhone') > -1) {
-            //苹果手机
-            console.log('苹果手机');
-            window.location.href ='storeberry://';
-        } else if (u.indexOf('Windows Phone') > -1) {
-            //winphone手机
         }
     }
 </script>
