@@ -77,8 +77,10 @@
     function send(){
         if(flag == true){
             alert(firstphone+'and'+myphone);
-            $.post('/path/to/file', {param1: 'value1'}, function(data, textStatus, xhr) {
+            $.post('/path/to/file', {sharerPhone:firstphone,getPhone:myphone}, function(data, textStatus, xhr) {
                 /*optional stuff to do after success */
+                console.log('返回的数据');
+                console.log(data);
             });
         }else{
             alert('失败');
@@ -99,10 +101,14 @@
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
-            window.location.href ='storeberry://';
-            setTimeout(function () {
-                    window.location.href = "www.baidu.com";
-            }, 200);
+            if(isWeiXin()){
+                alert('请点击右上角');
+            }else{
+                window.location.href ='storeberry://';
+                setTimeout(function () {
+                        window.location.href = "www.baidu.com";
+                }, 20);
+            }
         } else if (u.indexOf('Windows Phone') > -1) {
             //winphone手机
         }

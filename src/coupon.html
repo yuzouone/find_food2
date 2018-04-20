@@ -51,11 +51,9 @@
         if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
             //安卓手机
             console.log('安卓手机');
+            alert(123);
             window.jsObj.goAppCamera();
-            window.cameraResult = function(data){
-                document.getElementById('img').src = data;
-                vm.photo1=data;
-            }
+
         } else if (u.indexOf('iPhone') > -1) {
             //苹果手机
             console.log('苹果手机');
