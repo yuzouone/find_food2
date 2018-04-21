@@ -16,7 +16,7 @@
     <div class="free" id="free" onclick="send()">
         <span>免费领取</span>
     </div>
-    <p>下载士哆便利</p>
+    <p onclick="load()">下载士哆便利</p>
 </section>
 <div class="line"></div>
 <footer>
@@ -25,11 +25,24 @@
     <p>关注微信</p>
     <p>了解更多新鲜福利</p>
 </footer>
-<div class="motai">
+<div class="motai" id='motai'>
     <div class="content">
         <p>你已经是士哆便利会</p>
         <p>员了，快去使用优惠卷吧！</p>
-        <span onclick="openapp()">去使用</span>
+        <span onclick="openapp()">我知道了</span>
+    </div>
+</div>
+<div class="motai motai2" id='motai2'>
+    <div class="content">
+        <p>输入的号码跟分</p>
+        <p>享人号码一样，请重输！</p>
+        <span onclick="openapp()">我知道了</span>
+    </div>
+</div>
+<div class="motai motai3" id='motai3'>
+    <div class="content">
+        <p>服务器异常，请重新登录！</p>
+        <span onclick="openapp()">我知道了</span>
     </div>
 </div>
 </body>
@@ -75,43 +88,30 @@
     }
     //发送手机号到后台
     function send(){
-        if(flag == true){
-            alert(firstphone+'and'+myphone);
-            $.post('/path/to/file', {sharerPhone:firstphone,getPhone:myphone}, function(data, textStatus, xhr) {
-                /*optional stuff to do after success */
-                console.log('返回的数据');
-                console.log(data);
-            });
+        if(firstphone == myphone ){
+            $('#motai2').fadeIn();
         }else{
-            alert('失败');
+            if(flag == true){
+                $.post('/path/to/file', {sharerPhone:firstphone,getPhone:myphone}, function(data, textStatus, xhr) {
+                    /*optional stuff to do after success */
+                    console.log('返回的数据');
+                    console.log(data);
+                    if(data.code=='200'&&data.data.result=='1'){
+                        $('#motai').fadeIn();
+                    }else if(data.code=='200'&&data.data.result=='2'){
+                        window.location.href = 'presentsuccess.html?phone='+myphone;
+                    }else if(data.code=='500'){
+                        $('#motai3').fadeIn();
+                    }
+                });
+            }else{
+                alert('失败');
+            }
         }
     }
-    //打开app
+    //关闭模态框
     function openapp(){
-        //判断用户移动端使用的系统平台
-        var u = navigator.userAgent;
-        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
-            //安卓手机
-            console.log('安卓手机');
-            if(isWeiXin()){
-                alert('微信浏览器');
-            }else{
-                alert('其他浏览器');
-            }
-        } else if (u.indexOf('iPhone') > -1) {
-            //苹果手机
-            console.log('苹果手机');
-            if(isWeiXin()){
-                alert('请点击右上角');
-            }else{
-                window.location.href ='storeberry://';
-                setTimeout(function () {
-                        window.location.href = "www.baidu.com";
-                }, 20);
-            }
-        } else if (u.indexOf('Windows Phone') > -1) {
-            //winphone手机
-        }
+        $('.motai').fadeOut();
     }
     //是否微信
     function isWeiXin(){
@@ -121,6 +121,10 @@
         }else{
             return false;
         }
+    }
+    //下载官网
+    function load(){
+        window.location.href='http://www.storeberry.cn/src/load.html';
     }
 </script>
 </html>
