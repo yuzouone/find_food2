@@ -96,11 +96,11 @@
                     /*optional stuff to do after success */
                     console.log('返回的数据');
                     console.log(data);
-                    if(data.code=='200'&&data.data.result=='1'){
+                    if(data.code&&data.code=='200'&&data.data.result=='1'){
                         $('#motai').fadeIn();
-                    }else if(data.code=='200'&&data.data.result=='2'){
+                    }else if(data.code&&data.code=='200'&&data.data.result=='2'){
                         window.location.href = 'presentsuccess.html?phone='+myphone;
-                    }else if(data.code=='500'){
+                    }else if(data.code&&data.code=='500'){
                         $('#motai3').fadeIn();
                     }
                 });
@@ -116,12 +116,15 @@
     //是否微信
     function isWeiXin(){
         var ua = window.navigator.userAgent.toLowerCase();
+        console.log('平台');
+        console.log(ua);
         if(ua.match(/MicroMessenger/i) == 'micromessenger'){
             return true;
         }else{
             return false;
         }
     }
+    isWeiXin();
     //下载官网
     function load(){
         window.location.href='http://www.storeberry.cn/src/load.html';
