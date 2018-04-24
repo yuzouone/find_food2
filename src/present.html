@@ -92,7 +92,7 @@
             $('#motai2').fadeIn();
         }else{
             if(flag == true){
-                $.post('http://192.168.31.64:8001/c1st/api/coupon/userCoupon', {'sharerPhone':firstphone,'getPhone':myphone}, function(data, textStatus, xhr) {
+                $.post('http://dev.wetripay.com:8001/c1st/api/coupon/userCoupon', {'sharerPhone':firstphone,'getPhone':myphone}, function(data, textStatus, xhr) {
                     console.log('返回的数据');
                     console.log(data);
                     if(data.code&&data.code=='200'&&data.data.result=='1'){
