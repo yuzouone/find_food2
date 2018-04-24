@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/swiper-3.4.2.jquery.min.js"></script>
+    <script src="js/vue.js"></script>
     <!-- <script src="js/hammer.js"></script> -->
     <!-- <script src="js/touch.min.js"></script> -->
     <style>
@@ -54,6 +55,23 @@
     </div>
     <!-- end 轮播图 -->
     <!-- <img class="banner" src="images/banner2.png" alt=""> -->
+    <!-- <div class="test">
+        <img src="images/animation.gif" alt="" style="width:100%">
+    </div> -->
+    <div class="card_content" id="app">
+        <div class="card"  v-for="item in array">
+            <div class="card_left" >
+                <p><span>￥</span><span class="t1">{{item.coupon.subtract}}</span><span>优惠卷 满{{item.coupon.full}}使用</span></p>
+                <p>{{item.coupon.name}}</p>
+                <p>有效期至<span>{{item.coupon.creationTime.split(' ')[0]}}</span>~<span>{{item.coupon.expirationTime.split(' ')[0]}}</span></p>
+            </div>
+            <div class="card_right">
+               <img src="images/nouse.png" alt="" v-if="item.use == 0">
+               <img src="images/alreadyuse.png" alt="" v-if="item.use == 1">
+               <img src="images/lessdata.png" alt="" v-if="item.use == 2">
+            </div>
+        </div>
+    </div>
     <div class="content">
         <div class="left img">
             <p>精选商品</p>
@@ -104,13 +122,12 @@
 </body>
 <script>
     //获取域名,解析
-    /*function reset(){
+    function reset(){
         var r = window.location.search.substr(1).split('&');
         var first = r[0].split('=')[1];
         return first;
     }
-    var cc = reset();
-    alert(cc);*/
+    var token = reset();
     //跳转到折扣页面
     function coupon(){
         window.location.href = 'src/coupon.html'
@@ -162,6 +179,42 @@
     $('.motai').on('touchend',function(){
         $('.motai').fadeOut();
     });
+    //请求优惠卷
+    /*token = '49392b2a-80df-4cc3-9c66-3d4fe573289d';*/
+    $.ajax({
+        url: 'http://dev.wetripay.com:8001/c1st/api/coupon/queryUserCoupon',
+        type: 'GET',
+        dataType: "json",
+        beforeSend:function(request) {
+             request.setRequestHeader("authorization", token);
+        },
+        success:function(data){
+            console.log('返回的数据');
+            console.log(data);
+            //use 0未使用 1已使用 2已过期
+            if(data.code&&data.code=='200'){
+                //成功
+                //vue
+                console.log('返回的数据');
+                var vm = new Vue({
+                    el:'#app',
+                    data:{
+                        array:data.data.list,
+                    },
+                    methods:{
+
+                    }
+                });
+            }else if(data.code&&data.code=='401'){
+                //未登录
+                alert(data.message);
+            }else if(data.code&&data.code=='500'){
+                //系统异常
+                alert('服务器异常');
+            }
+        },
+    })
+
     /*touch.on('#body','swiperight',function(e){
         console.log(123);
         console.log(e);

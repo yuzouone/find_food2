@@ -41,7 +41,7 @@
 </div>
 <div class="motai motai3" id='motai3'>
     <div class="content">
-        <p>服务器异常，请重新登录！</p>
+        <p>服务器异常，请重新刷新！</p>
         <span onclick="openapp()">我知道了</span>
     </div>
 </div>
@@ -92,18 +92,41 @@
             $('#motai2').fadeIn();
         }else{
             if(flag == true){
-                $.post('/path/to/file', {sharerPhone:firstphone,getPhone:myphone}, function(data, textStatus, xhr) {
-                    /*optional stuff to do after success */
+                $.post('http://192.168.31.64:8001/c1st/api/coupon/userCoupon', {'sharerPhone':firstphone,'getPhone':myphone}, function(data, textStatus, xhr) {
                     console.log('返回的数据');
                     console.log(data);
                     if(data.code&&data.code=='200'&&data.data.result=='1'){
                         $('#motai').fadeIn();
                     }else if(data.code&&data.code=='200'&&data.data.result=='2'){
                         window.location.href = 'presentsuccess.html?phone='+myphone;
+                    }else if(data.code&&data.code=='200'&&data.data.result=='3'){
+                        window.location.href = 'presentsuccess.html?phone='+myphone;
                     }else if(data.code&&data.code=='500'){
                         $('#motai3').fadeIn();
                     }
                 });
+
+                //请求
+                /*$.ajax({
+                    url: 'http://dev.wetripay.com:8001/c1st/api/coupon/userCoupon',
+                    type: 'POST',
+                    data: {'sharerPhone':firstphone,'getPhone':myphone},
+                    beforeSend: function(request) {
+                         request.setRequestHeader("accessToken", accessToken);
+                    },
+                    success:function(data){
+                        console.log('返回的数据');
+                        console.log(data);
+                        if(data.code&&data.code=='200'&&data.data.result=='1'){
+                            $('#motai').fadeIn();
+                        }else if(data.code&&data.code=='200'&&data.data.result=='2'){
+                            window.location.href = 'presentsuccess.html?phone='+myphone;
+                        }else if(data.code&&data.code=='500'){
+                            $('#motai3').fadeIn();
+                        }
+                    },
+                })*/
+
             }else{
                 alert('失败');
             }
