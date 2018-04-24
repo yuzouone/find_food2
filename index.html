@@ -58,8 +58,8 @@
     <!-- <div class="test">
         <img src="images/animation.gif" alt="" style="width:100%">
     </div> -->
-    <div class="card_content" id="app">
-        <div class="card"  v-for="item in array">
+    <div class="card_content" id="app" v-if="ifhid">
+        <div class="card"  v-for="item in array" >
             <div class="card_left" >
                 <p><span>￥</span><span class="t1">{{item.coupon.subtract}}</span><span>优惠卷 满{{item.coupon.full}}使用</span></p>
                 <p>{{item.coupon.name}}</p>
@@ -195,19 +195,35 @@
             if(data.code&&data.code=='200'){
                 //成功
                 //vue
-                console.log('返回的数据');
+                var flag = false;
+                if(data.data.list.length!=0){
+                    flag = true;
+                }
                 var vm = new Vue({
                     el:'#app',
                     data:{
                         array:data.data.list,
+                        ifhid:flag,
                     },
                     methods:{
 
                     }
                 });
+
             }else if(data.code&&data.code=='401'){
                 //未登录
                 alert(data.message);
+                //vue
+                var flag = false;
+                /*if(data.data.list.length!=0){
+                    flag = true;
+                }*/
+                var vm = new Vue({
+                    el:'#app',
+                    data:{
+                        ifhid:flag,
+                    },
+                });
             }else if(data.code&&data.code=='500'){
                 //系统异常
                 alert('服务器异常');
