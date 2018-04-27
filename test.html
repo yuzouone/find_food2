@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,minimum-scale=0.5">
+    <title>动画</title>
+    <link rel="stylesheet" href="css/swiper-4.2.2.min.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/swiper-4.2.2.min.js"></script>
+    <style>
+        *{
+            margin: 0;padding: 0;border: 0;
+        }
+        html,body{
+            width: 100%;
+        }
+        .this_slide{
+            position: relative;
+        }
+        .replay{
+            position: absolute;
+            left: 40%;
+            bottom: 1.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .replay img{
+            width: 0.4rem;
+            height: 0.4rem;
+            vertical-align: middle;
+        }
+        .replay p{
+            font-size: 0.3rem;
+            color: red;
+            height: 0.4rem;
+            line-height: 0.4rem;
+            font-weight: bold;
+            margin-left: 0.1rem;
+        }
+    </style>
+</head>
+<body>
+<!-- <div class="test" id="app">
+    <img v-bind:src="src" alt="" style="width:100%">
+    <p v-on:click="change">replay</p>
+</div> -->
+    <!-- 轮播图 -->
+    <!-- Slider main container -->
+<!-- <div class="main" id="app">
+    <div class="swiper-container" style="width: 100%;" >
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/one.gif"   style="width:100%"  alt=""></div>
+            <div class="swiper-slide"><img src="images/one.gif"  style="width:100%"  alt=""></div>
+            <div class="swiper-slide"><img src="images/one.gif"  style="width:100%"  alt=""></div>
+        </div>
+        <div class="swiper-pagination">
+        </div>
+    </div>
+</div> -->
+
+<div class="swiper-container" id="app">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide this_slide">
+            <img v-bind:src="src" alt="" class="img" style="width:100%">
+            <div class="replay" v-on:click="change">
+                <img src="images/reload.png" alt="">
+                <p align="center">replay</p>
+            </div>
+        </div>
+        <div class="swiper-slide this_slide">
+            <img src="images/egg@3x.png" class="img"  style="width:100%"  alt="">
+            <div class="replay" v-on:click="change">
+                <img src="images/reload.png" alt="">
+                <p align="center">replay</p>
+            </div>
+        </div>
+        <div class="swiper-slide"><img src="images/fruit@3x.png" class="img"  style="width:100%"  alt=""></div>
+    </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
+    <!-- 如果需要导航按钮 -->
+    <!-- <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div> -->
+
+    <!-- 如果需要滚动条 -->
+    <div class="swiper-scrollbar"></div>
+</div>
+<script>
+
+</script>
+<script>
+    //获取设备屏幕宽度,设置根目录宽度和字体大小
+    function screenwidth(){
+        var html = document.getElementById('html');
+        html.style.fontSize = window.screen.width+'px';
+        var w=document.documentElement?document.documentElement.clientWidth :document.body.clientWidth ;
+        html.style.fontSize = w/7.5 +'px';
+    }
+    screenwidth();
+    //刷新按钮的显示隐藏
+    function ifShowReload(time){
+        //给当前页面刷新按钮隐藏显示
+        $('.replay').hide();
+        setTimeout(function(){
+            $('.replay').fadeIn();
+        },time);
+    }
+    //预加载首动画成功
+    var img = new Image();
+    img.src = 'images/guide0.gif';
+    var index = 0;
+    var timearr = [2300,1500];
+    img.onload = function(){
+        ifShowReload(2300);//执行显示隐藏replay按钮
+        //vue实例
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                src:'images/guide0.gif',
+            },
+            methods:{
+                change:function(){
+                    console.log(timearr[index]);
+                    ifShowReload(timearr[index]);//执行显示隐藏replay按钮
+                    vm.src = 'images/guide0.jpg';
+                    setTimeout(function(){
+                        vm.src = 'images/guide'+index+'.gif';
+                    },10);
+                }
+            }
+        });
+        //轮播控制
+        var mySwiper = new Swiper ('.swiper-container', {
+            // Optional parameters
+            autoplay: 4000,
+            autoplayDisableOnInteraction:false,
+            direction: 'horizontal',
+            //loop: true,
+            // 如果需要分页器
+            pagination: {
+              el: '.swiper-pagination',
+            },
+        });
+        //滑动
+        var mysrc='';
+        mySwiper.on('slideChangeTransitionEnd', function () {
+            var txt = $('.swiper-slide-active').html();
+            console.log("内容："+txt+"===索引值："+mySwiper.activeIndex+"===图片地址："+imgurl);
+            //给当前页面添加gif
+            index = mySwiper.activeIndex;
+            mysrc = 'images/guide'+index+'.gif';
+            var imgurl = $('.swiper-slide-active .img').attr("src",mysrc);
+            ifShowReload(timearr[index]);//执行显示隐藏replay按钮
+        });
+    };
+    //预加载
+    //存放图片路径的数组
+    var imgSrcArr = [
+        'images/guide1.gif',
+        'imgsrc2',
+        'imgsrc3',
+        'imgsrc4'
+    ];
+    function preloadImg(arr) {
+        var imgWrap = [];
+        for(var i =0; i< arr.length ;i++) {
+            imgWrap[i] = new Image();
+            imgWrap[i].src = arr[i];
+        }
+    }
+    preloadImg(imgSrcArr);//开始预加载
+</script>
+</body>
+</html>
